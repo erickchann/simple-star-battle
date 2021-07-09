@@ -5,6 +5,7 @@ class Game {
 
         this.listener();
         this.init();
+        this.update();
     }
 
     init() {
@@ -14,7 +15,28 @@ class Game {
     generateEnemy() {
         setInterval(() => {
             new Enemy();
-        }, Math.random() * 3000);
+        }, Math.random() * 2000 + 2000);
+    }
+
+    update() {
+        setInterval(() => {
+            const enemy = document.querySelectorAll('.enemy');
+            const laser = document.querySelectorAll('.playerlaser');
+
+            if (enemy.length >= 1 && laser.length >= 1) {
+                laser.forEach((l, i) => {
+                    enemy.forEach((e, j) => {
+                        let lsr = l.getBoundingClientRect();
+                        let eny = e.getBoundingClientRect();
+
+                        if (lsr.x <= eny.x + eny.width && lsr.x + lsr.width >= eny.x && lsr.y <= eny.y + eny.height && lsr.y + lsr.height >= eny.y) {
+                            laser[i].remove();
+                            enemy[j].remove();
+                        }
+                    });
+                });
+            }
+        }, 10);
     }
 
     listener() {
