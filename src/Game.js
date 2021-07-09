@@ -1,5 +1,7 @@
 class Game {
     constructor() {
+        this.score = 0;
+
         this.player = new Player();
         this.laser = [];
 
@@ -32,6 +34,10 @@ class Game {
                         if (lsr.x <= eny.x + eny.width && lsr.x + lsr.width >= eny.x && lsr.y <= eny.y + eny.height && lsr.y + lsr.height >= eny.y) {
                             laser[i].remove();
                             enemy[j].remove();
+                            
+                            this.score += 10;
+
+                            score.innerHTML = `SCORE: ${this.score}`;
                         }
                     });
                 });

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: gorimance;
+    src: url('../font/gomarice_no_continue.ttf');
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -13,6 +18,17 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #0c1a2a;
+    font-family: gorimance;
+}
+
+#score {
+    position: absolute;
+    margin: 20px;
+    color: white;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px black;
+    z-index: 2;
 }
 
 #game-area {
