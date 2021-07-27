@@ -17,7 +17,7 @@ class Game {
     generateEnemy() {
         setInterval(() => {
             new Enemy();
-        }, Math.random() * 2000 + 2000);
+        }, Math.random() * 1000 + 1000);
     }
 
     update() {
